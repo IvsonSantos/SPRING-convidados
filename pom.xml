@@ -63,18 +63,20 @@
 			<version>3.3.7</version>
 		</dependency>
 
-		<!-- MYSQL
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency> -->
-		
+		<!-- MYSQL <dependency> <groupId>mysql</groupId> <artifactId>mysql-connector-java</artifactId> 
+			<scope>runtime</scope> </dependency> -->
+
 		<!-- POSTGRES -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+
+		<!-- SECURITY -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
 		<dependency>
