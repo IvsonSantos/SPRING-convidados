@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
-<head>
 
+<head>
 <title>Lista de Convidados</title>
+
 <!-- Se der erro no design, colocar este trecho no HEAD -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
-<link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css" />
+<link rel="stylesheet" type="text/css"
+	href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" th:href="@{/css/main.css}"
+	href="../../css/main.css" />
 </head>
+
 <body>
 
-<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse">
 		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="#">Spring Boot</a>
@@ -24,21 +28,34 @@
 			</div>
 		</div>
 	</nav>
-	
+
 	<div class="panel panel-default" style="margin: 10px">
 		<div class="panel-heading">
 			<h1 class="panel-title">Lista de convidados</h1>
 		</div>
 		<div class="panel-body">
+
+			<form class="form-inline" method="POST" style="margin: 20px 0" 
+				  th:object="${convidado}" th:action="@{/convidados}">
+				<div class="form-group">
+					<!--  <input type="text" class="form-control" placeholder="Codigo" th:field="*{id}"/>-->
+					<input type="text" class="form-control" placeholder="Nome" th:field="*{nome}"/> 
+					<input type="text" class="form-control" placeholder="Acompanhantes" th:field="*{quantidadeAcompanhantes}" />
+					<button type="submit" class="btn btn-primary">Adicionar</button>
+				</div>
+			</form>
+
 			<table class="table">
 				<thead>
 					<tr>
+						<th>Código</th>
 						<th>Nome</th>
 						<th>Acompanhantes</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr th:each="convidado : ${convidados}">
+						<td th:text="${convidado.id}"></td>
 						<td th:text="${convidado.nome}"></td>
 						<td th:text="${convidado.quantidadeAcompanhantes}"></td>
 					</tr>
